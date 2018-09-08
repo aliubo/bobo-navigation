@@ -1,0 +1,151 @@
+*{
+    padding:0;
+    margin:0;
+}
+html{
+    font-size:14px;
+    color:#333;
+    background: #f4f4f2;
+}
+#main{
+    width:1000px;
+    margin:0 auto;
+}
+#header{
+    height:80px;
+    line-height: 80px;
+}
+#logo{
+    font-size:1.5rem;
+    float:left;
+    width:200px;
+    text-align: left;
+}
+#search{
+    height:32px;
+    display:inline-block;
+    border: solid 1px #e5e5e5;
+    margin-top:24px;
+    line-height: 32px;
+    vertical-align:top;
+    background:white;
+}
+#searchbar{
+    width:530px;
+    font-size:1.2rem;
+    outline:0;
+    border:0;
+    padding:5px;
+    display:inline-block;
+    height:22px;
+    float:left;
+}
+#searchbutton{
+    width:32px;
+    height:32px;
+    background:#0078d7 url(img/search.png);
+    display:inline-block;
+    background-size:60%;
+    background-position: center;
+    background-repeat:no-repeat;
+    cursor: pointer;
+}
+
+#title{
+    font-size:1.25rem;
+    margin-top:1rem;
+    margin-bottom:1.4rem;
+}
+
+#first{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+.firstitem{
+    width:110px;
+    height:120px;
+    text-align: center;
+    border: solid 1px rgb(221, 221, 221);
+    margin-bottom:10px;
+    text-decoration: none;
+    background-size:cover;
+    background-position:center;
+    background:#fff;
+    transition: 0.2s;
+}
+.firstitem:hover{
+    background:#eee;
+}
+.firstitem img{
+    width:40px;
+    height:40px;
+    display:inline-block;
+    margin:20px 0 10px 0;
+}
+.firstitem .firsttitle{
+    text-decoration: none;
+}
+
+#second{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding:15px;
+    background:#fff;
+    margin-top:20px;
+}
+.seconditem{
+    width:120px;
+    text-decoration: none;
+    color:#333;
+    margin-top:10px;
+    margin-right:30px;
+}
+.seconditem img{
+    width:20px;
+    height:20px;
+    display:block;
+    float:left;
+    margin-right:5px;
+}
+
+#third{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    margin-bottom:50px;
+}
+.thirditem{
+    width:310px;
+    background:#fff;
+    margin-top:30px;
+}
+.thirditem .thirdtitle{
+    margin: 20px 0 20px 20px;
+    font-size:1.2rem;
+}
+.thirditem hr{
+    border:0;
+    height:1px;
+    background:grey;
+    margin:10px;
+}
+.thirditem .thirdval{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    padding:20px;
+}
+.thirditem .thirdval .thirdlink{
+    text-decoration: none;
+    color:#333;
+    display:block;
+    width:70px;
+    margin-bottom:10px;
+}
+
+.thirditem .thirdval .thirdlink:hover,
+.seconditem:hover{
+    text-decoration:underline;
+}

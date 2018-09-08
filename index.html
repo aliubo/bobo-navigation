@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>bobo的导航</title>
+    <base target="_blank"/>
+    <link rel="stylesheet" href="index.css">
+    <script src="vue.min.js"></script>
+    <script>
+
+
+onload=function(){
+    var daohang=new Vue({
+        'el':'#main',
+        'data':daohangdata
+    });
+    document.getElementById('searchbar').focus();
+    document.getElementById('searchbutton').onclick=function(){
+        open('https://www.baidu.com/s?wd='+encodeURI(document.getElementById('searchbar').value));
+    }
+    document.getElementById('searchbar').onkeydown=function(e){
+        if(e.which==13){
+            document.getElementById('searchbutton').onclick();
+        }
+    }
+    document.getElementById('searchbar').onkeyup=function(e){
+        console.log(document.getElementById('searchbar').value);
+    }
+}
+
+
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div id="logo">bobo的导航</div>
+            <div id="search">
+                <input type="text" id="searchbar" placeholder="搜索一下">
+                <div id="searchbutton"></div>
+            </div>
+        </div>
+        <div id="title">主要站点</div>
+        <div id="first">
+            <a  v-for="item in first" 
+                :href="item[2]"  
+                class="firstitem" 
+                :style="{'background':item[3]!=null?'item[3]':''}"
+            >
+                <img :src="item[1]">
+                <div class="firsttitle"
+                     :style="{'color':item[3]!=null?'#fff':'#333'}"
+                >{{item[0]}}</div>
+            </a>
+        </div>
+        <div id="second">
+            <a  v-for="item in second"
+                :href="item[2]"
+                class="seconditem"
+            >
+                <img v-if="item[1]!=null" :src="item[1]">
+                <div class="secondtitle">{{item[0]}}</div>
+            </a>
+        </div>
+        <div id="third">
+            <div class="thirditem"
+                 v-for="item in third"
+            >
+                <div class="thirdtitle">{{item.name}}</div>
+                <hr>
+                <div class="thirdval">
+                    <a  class="thirdlink"
+                        v-for="i in item.val"
+                        :href="i[1]"
+                        :style="{'color':i[2]!=null?i[2]:''}"
+                    >{{i[0]}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+
+
+
+
+var daohangdata=
+{
+    'first':[
+        //*name,*logo,*url,background
+        ['百度','img/baidu.png','https://www.baidu.com',null],
+        ['哔哩哔哩','img/bilibili.jpg','https://www.bilibili.com',null],
+        ['github','img/github.jpg','https://www.github.com',null],
+        ['google','img/google.jpg','https://www.google.com',null],
+        ['Youtube','img/youtube.jpg','https://www.youtube.com',null],
+        ['google翻译','img/googletranslate.jpg','https://translate.google.cn',null],
+        ['twitter','img/twitter.jpg','https://www.twitter.com',null],
+        ['知乎','img/zhihu.jpg','https://www.zhihu.com',null]
+    ],
+    'second':[
+        //*name,logo,*url
+        ['微博','img/weibo.png','https://weibo.com'],
+        ['天猫','img/tmall.png','https://www.tmall.com'],
+        ['携程','img/ctrip.png','https://www.ctrip.com'],
+        ['京东','img/jd.png','https://www.jd.com'],
+        ['vjudge','img/vjudge.jpg','https://vjudge.net'],
+        ['iconfont','img/iconfont.png','http://www.iconfont.cn/'],
+        ['阿里云','img/aliyun.png','https://www.aliyun.com'],
+        ['腾讯云','img/cloudtencent.jpg','https://cloud.tencent.com'],
+        ['wiki','img/wiki.jpg','https://www.wikipedia.org/'],
+        ['pixiv','img/pixiv.png','https://www.pixiv.net/'],
+        ['163邮箱','img/163.jpg','https://mail.163.com/'],
+        ['CSDN','img/csdn.jpg','https://www.csdn.net/'],
+        ['微信公众平台','img/wechat.jpg','https://mp.weixin.qq.com/'],
+        ['CCUT','img/ccut.jpg','http://ccut.edu.cn'],
+        ['小米','img/mi.jpg','https://www.mi.com'],
+        ['洛谷','img/luogu.ico','https://www.luogu.org'],
+        ['百度地图','img/mapbaidu.ico','https://map.baidu.com'],
+        ['steam','img/steam.ico','https://store.steampowered.com/']
+    ],
+    'third':[
+        //name:*string, val:*Array
+        //val: *name, *url, color
+        /*{'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]},
+        {'name':'搜索引擎',
+        'val':[
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null],
+            ['百度','http://www.baidu.com',null]
+        ]}*/
+    ]
+}
+
+
+
+
+
+</script>
+</body>
+</html>
