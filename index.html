@@ -49,6 +49,7 @@ onload=function(){
                 class="firstitem" 
                 :style="{'background':item[3]!=null?'item[3]':''}"
             >
+                <div class="firstbgimg" :style="{'backgroundImage':'url('+item[1]+')'}"></div> 
                 <img :src="item[1]">
                 <div class="firsttitle"
                      :style="{'color':item[3]!=null?'#fff':'#333'}"
