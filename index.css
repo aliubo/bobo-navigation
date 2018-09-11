@@ -6,6 +6,7 @@ html{
     font-size:14px;
     color:#333;
     background: #f4f4f2;
+    background:url(http://nav.liubo.pro/img/bg-grey.jpg);
 }
 #main{
     width:1000px;
@@ -49,6 +50,19 @@ html{
     background-position: center;
     background-repeat:no-repeat;
     cursor: pointer;
+}
+
+
+@media screen and (max-width:1100px){
+    #main{
+        width:500px;
+    }
+    #logo{
+        width:160px;
+    }
+    #searchbar{
+        width: 280px;
+    }
 }
 
 #title{
