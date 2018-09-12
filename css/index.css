@@ -5,7 +5,7 @@
 html{
     font-size:14px;
     color:#333;
-    background: #f4f4f2 url(http://nav.liubo.pro/img/bg-grey.png);
+    background: #f4f4f2 url(../img/bg-grey.png);
 }
 .main{
     width:1000px;
@@ -45,7 +45,7 @@ html{
 .searchbutton{
     width:32px;
     height:32px;
-    background:#0078d7 url(img/search.png);
+    background:#0078d7 url(../img/search.png);
     display:inline-block;
     background-size:60%;
     background-position: center;
@@ -53,7 +53,7 @@ html{
     cursor: pointer;
 }
 .searchbutton:hover{
-    background:#3d9be7 url(img/search.png);
+    background:#3d9be7 url(../img/search.png);
     background-size:60%;
     background-position: center;
     background-repeat:no-repeat;
