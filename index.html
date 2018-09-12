@@ -11,22 +11,25 @@
     <script>
 
 
+var daohangdata={};
 var onloadnav=function(){
-    var daohang=new Vue({
-        'el':'#main',
-        'data':daohangdata
-    });
-    document.getElementById('searchbar').focus();
-    document.getElementById('searchbutton').onclick=function(){
-        open('https://www.baidu.com/s?wd='+encodeURI(document.getElementById('searchbar').value));
+    daohang.display=daohangdata.display;
+    daohang.first=daohangdata.first;
+    daohang.second=daohangdata.second;
+    daohang.third=daohangdata.third;
+    var searchbar=document.querySelector(".main>.header .searchbar");
+    var searchbutton=document.querySelector(".main>.header .searchbutton");
+    console.log(searchbar,searchbutton);
+    setTimeout(function(){
+        searchbar.focus();
+    },200);
+    searchbutton.onclick=function(){
+        open('https://www.baidu.com/s?wd='+encodeURI(searchbar.value));
     }
-    document.getElementById('searchbar').onkeydown=function(e){
+    searchbar.onkeydown=function(e){
         if(e.which==13){
-            document.getElementById('searchbutton').onclick();
+            searchbutton.onclick();
         }
-    }
-    document.getElementById('searchbar').onkeyup=function(e){
-        console.log(document.getElementById('searchbar').value);
     }
 }
 
@@ -34,16 +37,30 @@ var onloadnav=function(){
     </script>
 </head>
 <body>
-    <div id="main">
-        <div id="header">
-            <div id="logo">bobo的导航</div>
-            <div id="search">
-                <input type="text" id="searchbar" placeholder="搜索一下">
-                <div id="searchbutton"></div>
+    <div class="main">
+        <div v-if="display!=true" class="loading">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="search">
+                </div>
+            </div>
+            <div class="title"></div>
+            <div class="first">
+                <div v-for="item in 8" class="firstitem"></div>
+            </div>
+            <div class="second">
+                <div v-for="item in 30" class="seconditem"></div>
             </div>
         </div>
-        <div id="title">主要站点</div>
-        <div id="first">
+        <div :class="{'display':display}" class="header">
+            <div class="logo">bobo的导航</div>
+            <div class="search">
+                <input type="text" class="searchbar" placeholder="搜索一下">
+                <div class="searchbutton"></div>
+            </div>
+        </div>
+        <div :class="{'display':display}" class="title">主要站点</div>
+        <div :class="{'display':display}" class="first">
             <a  v-for="item in first" 
                 :href="item[2]"  
                 class="firstitem" 
@@ -56,7 +73,7 @@ var onloadnav=function(){
                 >{{item[0]}}</div>
             </a>
         </div>
-        <div id="second">
+        <div :class="{'display':display}" class="second">
             <a  v-for="item in second"
                 :href="item[2]"
                 class="seconditem"
@@ -65,7 +82,7 @@ var onloadnav=function(){
                 <div class="secondtitle">{{item[0]}}</div>
             </a>
         </div>
-        <div id="third">
+        <div :class="{'display':display}" class="third">
             <div class="thirditem"
                  v-for="item in third"
             >
@@ -83,12 +100,22 @@ var onloadnav=function(){
     </div>
 
 <script>
+var daohang=new Vue({
+    'el':'.main',
+    'data':{
+        display:false,
+        first:[],
+        second:[],
+        third:[]
+    }
+});
+
 var qu=new XMLHttpRequest();
 qu.open("GET","nav.json");
 qu.onreadystatechange=function(){
     if (qu.readyState==4 && qu.status==200)
     {
-        window.daohangdata=JSON.parse(qu.responseText);
+        daohangdata=JSON.parse(qu.responseText);
         onloadnav();
     }
 };

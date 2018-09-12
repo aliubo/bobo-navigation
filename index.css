@@ -5,24 +5,25 @@
 html{
     font-size:14px;
     color:#333;
-    background: #f4f4f2;
-    background:url(http://nav.liubo.pro/img/bg-grey.jpg);
+    background: #f4f4f2 url(http://nav.liubo.pro/img/bg-grey.jpg);
 }
-#main{
+.main{
     width:1000px;
-    margin:0 auto;
+    margin:0 auto 50px auto;
 }
-#header{
+.header{
     height:80px;
-    line-height: 80px;
 }
-#logo{
+.logo{
     font-size:1.5rem;
     float:left;
     width:200px;
     text-align: left;
+    margin-top: 24px;
+    margin-right: 40px;
+    height: 32px;
 }
-#search{
+.search{
     height:32px;
     display:inline-block;
     border: solid 1px #e5e5e5;
@@ -31,7 +32,7 @@ html{
     vertical-align:top;
     background:white;
 }
-#searchbar{
+.searchbar{
     width:530px;
     font-size:1.2rem;
     outline:0;
@@ -41,7 +42,7 @@ html{
     height:22px;
     float:left;
 }
-#searchbutton{
+.searchbutton{
     width:32px;
     height:32px;
     background:#0078d7 url(img/search.png);
@@ -51,7 +52,7 @@ html{
     background-repeat:no-repeat;
     cursor: pointer;
 }
-#searchbutton:hover{
+.searchbutton:hover{
     background:#3d9be7 url(img/search.png);
     background-size:60%;
     background-position: center;
@@ -59,25 +60,14 @@ html{
 }
 
 
-@media screen and (max-width:1100px){
-    #main{
-        width:500px;
-    }
-    #logo{
-        width:160px;
-    }
-    #searchbar{
-        width: 280px;
-    }
-}
-
-#title{
+.title{
     font-size:1.25rem;
     margin-top:1rem;
     margin-bottom:1.4rem;
+    height:1.25rem;
 }
 
-#first{
+.first{
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
@@ -134,11 +124,11 @@ html{
     animation: firstitembgimg 0.5s ease 0s alternate;
 }
 
-#second{
+.second{
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
-    padding:15px;
+    padding:1px 15px 15px 15px;
     background:#fff;
     margin-top:20px;
 }
@@ -146,7 +136,7 @@ html{
     width:120px;
     text-decoration: none;
     color:#333;
-    margin-top:10px;
+    margin-top:14px;
     margin-right:30px;
 }
 .seconditem img{
@@ -157,7 +147,7 @@ html{
     margin-right:5px;
 }
 
-#third{
+.third{
     display:flex;
     flex-wrap:wrap;
     justify-content:space-between;
@@ -195,4 +185,67 @@ html{
 .thirditem .thirdval .thirdlink:hover,
 .seconditem:hover{
     text-decoration:underline;
+}
+
+.main>.header,.main>.title,.main>.first,.main>.second,.main>.third{
+    display:none;
+}
+.main>.header.display,.main>.title.display{
+    display:block;
+}
+.main>.first.display,.main>.second.display,.main>.third.display{
+    display:flex;
+}
+
+
+
+
+
+
+/*多尺寸适配*/
+@media screen and (max-width:1100px){
+    .main{
+        width:500px;
+    }
+    .logo{
+        width:160px;
+    }
+    .searchbar{
+        width: 240px;
+    }
+}
+
+
+
+
+
+
+
+/*墓碑元素*/
+.loading .header .logo,
+.loading .header .search,
+.loading .title,
+.loading .second .seconditem
+{
+    background:#eee;
+}
+.loading .title{
+    width:200px;
+}
+.loading .header .search{
+    width:calc(574px);
+}
+.loading .first .firstitem:hover{
+    background:#fff;
+}
+.loading .second .seconditem{
+    width:120px;
+    height:20px;
+}
+
+/*墓碑元素多尺寸适配*/
+@media screen and (max-width:1100px){
+    .loading .header .search{
+        width:240px;
+    }
 }
