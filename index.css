@@ -115,8 +115,8 @@ html{
     transition: 0.5s;
 }
 @keyframes firstitembgimg{
-    from{transform: rotate(300deg)}
-    to{transform: rotate(360deg)}
+    from{transform: rotate(300deg);}
+    to{transform: rotate(360deg);}
 }
 .firstitem:hover .firstbgimg{
     filter: blur(14px) opacity(0.3);
