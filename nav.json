@@ -31,6 +31,21 @@
         ["steam","img/steam.ico","https://store.steampowered.com/"]
     ],
     "third":[
-        
+        {
+            "name":"搜索引擎",
+            "val":[
+                ["Google","https://www.google.com",null],
+                ["Yahoo","https://www.yahoo.com",null],
+                ["百度","https://www.baidu.com",null]
+            ]
+        },{
+            "name":"购物",
+            "val":[
+                ["亚马逊","https://www.amazon.com",null],
+                ["天猫","https://www.tmall.com",null],
+                ["淘宝","https://www.taobao.com",null]
+            ]
+        }
+
     ]
 }
