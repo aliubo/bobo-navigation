@@ -11,24 +11,57 @@
     <script>
 
 
-var daohangdata={};
+var nav_data={};
 var onloadnav=function(){
-    daohang.display=daohangdata.display;
-    daohang.first=daohangdata.first;
-    daohang.second=daohangdata.second;
-    daohang.third=daohangdata.third;
+    nav.display=nav_data.display;
+    nav.first=nav_data.first;
+    nav.second=nav_data.second;
+    nav.third=nav_data.third;
     var searchbar=document.querySelector(".main>.header .searchbar");
     var searchbutton=document.querySelector(".main>.header .searchbutton");
-    console.log(searchbar,searchbutton);
     setTimeout(function(){
         searchbar.focus();
     },200);
-    searchbutton.onclick=function(){
-        open('https://www.baidu.com/s?wd='+encodeURI(searchbar.value));
+    searchbutton.onclick=function(e){
+        var url="";
+        var query=searchbar.value;
+        var engine=searchbutton.dataset.engine;
+        if(engine!='other'){
+            query=query.slice(2);
+        }
+        qeury=encodeURI(query);
+        switch(engine){
+            case 'g':
+                url='https://www.google.com/search?q='+query;
+            break;
+            case 'b':
+                url='https://www.baidu.com/s?wd='+query;
+            break;
+            default:
+                url='https://www.baidu.com/s?wd='+query;
+            break;
+        }
+        open(url);
     }
     searchbar.onkeydown=function(e){
+        console.log(e);
         if(e.which==13){
             searchbutton.onclick();
+        }
+    }
+    searchbar.onkeyup=function(e){
+        var el_val=e.target.value.slice(0,2).toLocaleLowerCase();
+        if(el_val[1]=='：'||el_val[1]==':')el_val=el_val[0];
+        else el_val="other";
+        if(el_val=="g"){
+            searchbutton.style.background='url("img/google.svg") no-repeat scroll center / 60%';
+            searchbutton.dataset.engine="g";
+        }else if(el_val=="b"){
+            searchbutton.style.background='url("img/baidu.svg") no-repeat scroll center / 60%';
+            searchbutton.dataset.engine="b";
+        }else{
+            searchbutton.style.background='#3d9be7 url(img/search.png) no-repeat scroll center / 60%';
+            searchbutton.dataset.engine="other";
         }
     }
 }
@@ -100,7 +133,7 @@ var onloadnav=function(){
     </div>
 
 <script>
-var daohang=new Vue({
+var nav=new Vue({
     'el':'.main',
     'data':{
         display:false,
@@ -110,16 +143,15 @@ var daohang=new Vue({
     }
 });
 
-var qu=new XMLHttpRequest();
-qu.open("GET","nav.json");
-qu.onreadystatechange=function(){
-    if (qu.readyState==4 && qu.status==200)
-    {
-        daohangdata=JSON.parse(qu.responseText);
+var ajax_query=new XMLHttpRequest();
+ajax_query.open("GET","nav.json");
+ajax_query.onreadystatechange=function(){
+    if (ajax_query.readyState==4 && ajax_query.status==200){
+        nav_data=JSON.parse(ajax_query.responseText);
         onloadnav();
     }
 };
-qu.send();
+ajax_query.send();
 </script>
 </body>
 </html>

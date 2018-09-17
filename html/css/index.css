@@ -165,7 +165,7 @@ html{
 .thirditem hr{
     border:0;
     height:1px;
-    background:grey;
+    background:rgb(226, 226, 226);
     margin:10px;
 }
 .thirditem .thirdval{
@@ -212,6 +212,9 @@ html{
     }
     .searchbar{
         width: 240px;
+    }
+    .thirditem{
+        width:240px;
     }
 }
 

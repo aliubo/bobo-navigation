@@ -36,14 +36,53 @@
             "val":[
                 ["Google","https://www.google.com",null],
                 ["Yahoo","https://www.yahoo.com",null],
-                ["百度","https://www.baidu.com",null]
+                ["百度","https://www.baidu.com",null],
+                ["必应","https://cn.bing.com",null]
             ]
         },{
             "name":"购物",
             "val":[
                 ["亚马逊","https://www.amazon.com",null],
                 ["天猫","https://www.tmall.com",null],
-                ["淘宝","https://www.taobao.com",null]
+                ["淘宝","https://www.taobao.com",null],
+                ["网易严选","http://you.163.com/",null],
+                ["闲鱼","https://2.taobao.com/",null],
+                ["美团","https://www.meituan.com/",null],
+                ["携程","http://u.ctrip.com/",null]
+            ]
+        },{
+            "name":"ACM",
+            "val":[
+                ["洛谷","https://www.luogu.org/",null],
+                ["Vjudge","https://vjudge.net/",null],
+                ["OpenJudge","http://openjudge.cn/",null],
+                ["PTA","https://pintia.cn/",null],
+                ["CCPC","http://ccpc.io/",null],
+                ["CodeForces","http://codeforces.com/",null],
+                ["HDUOJ","http://acm.hdu.edu.cn/",null],
+                ["POJ","http://poj.org/",null],
+                ["MiOJ","https://code.mi.com/site/index",null],
+                ["NOI","http://noi.openjudge.cn/",null],
+                ["牛客","https://www.nowcoder.com/",null]
+            ]
+        },{
+            "name":"娱乐",
+            "val":[
+                ["NicoNico","http://www.nicovideo.jp/"],
+                ["pixiv","https://www.pixiv.net/"],
+                ["bilibili","https://www.bilibili.com/"],
+                ["youtube","https://www.youtube.com/"],
+                ["twitter","https://twitter.com/"],
+                ["微博","https://weibo.com/"]
+            ]
+        },{
+            "name":"开发者",
+            "val":[
+                ["iconfont","http://www.iconfont.cn/"],
+                ["github","https://github.com/"],
+                ["阿里云","https://www.aliyun.com"],
+                ["腾讯云","https://cloud.tencent.com"],
+                ["CSDN","https://www.csdn.net/"]
             ]
         }
 
