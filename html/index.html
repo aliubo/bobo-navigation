@@ -8,83 +8,19 @@
     <base target="_blank"/>
     <link rel="stylesheet" href="css/index.css">
     <script src="js/vue.min.js"></script>
-    <script>
-
-
-var nav_data={};
-var onloadnav=function(){
-    nav.display=nav_data.display;
-    nav.first=nav_data.first;
-    nav.second=nav_data.second;
-    nav.third=nav_data.third;
-    var searchbar=document.querySelector(".main>.header .searchbar");
-    var searchbutton=document.querySelector(".main>.header .searchbutton");
-    setTimeout(function(){
-        searchbar.focus();
-    },200);
-    searchbutton.onclick=function(e){
-        var url="";
-        var query=searchbar.value;
-        var engine=searchbutton.dataset.engine;
-        if(engine!='other'){
-            query=query.slice(2);
-        }
-        query=encodeURI(query);
-        switch(engine){
-            case 'g':
-                url='https://www.google.com/search?q='+query;
-            break;
-            case 'b':
-                url='https://www.baidu.com/s?wd='+query;
-            break;
-            default:
-                url='https://www.baidu.com/s?wd='+query;
-            break;
-        }
-        open(url);
-    }
-    searchbar.onkeydown=function(e){
-        console.log(e);
-        if(e.which==13){
-            searchbutton.onclick();
-        }
-    }
-    searchbar.onkeyup=function(e){
-        var el_val=e.target.value.slice(0,2).toLocaleLowerCase();
-        if(el_val[1]=='：'||el_val[1]==':')el_val=el_val[0];
-        else el_val="other";
-        if(el_val=="g"){
-            searchbutton.style.background='url("img/google.svg") no-repeat scroll center / 60%';
-            searchbutton.dataset.engine="g";
-        }else if(el_val=="b"){
-            searchbutton.style.background='url("img/baidu.svg") no-repeat scroll center / 60%';
-            searchbutton.dataset.engine="b";
-        }else{
-            searchbutton.style.background='#3d9be7 url(img/search.png) no-repeat scroll center / 60%';
-            searchbutton.dataset.engine="other";
-        }
-    }
-}
-
-
-    </script>
+    <script src="js/index.js"></script><!-- onload() vue() -->
 </head>
 <body>
     <div class="main">
+        <!--墓碑元素-->
         <div v-if="display!=true" class="loading">
-            <div class="header">
-                <div class="logo"></div>
-                <div class="search">
-                </div>
-            </div>
+            <div class="header"><div class="logo"></div><div class="search"></div></div>
             <div class="title"></div>
-            <div class="first">
-                <div v-for="item in 8" class="firstitem"></div>
-            </div>
-            <div class="second">
-                <div v-for="item in 30" class="seconditem"></div>
-            </div>
+            <div class="first"><div v-for="item in 8" class="firstitem"></div></div>
+            <div class="second"><div v-for="item in 30" class="seconditem"></div></div>
+            <div class="third"><div v-for="item in 3" class="thirditem"><div class="thirdtitle"></div><hr><div class="thirdval"><a class="thirdlink"v-for="i in 9"></a></div></div></div>
         </div>
+        <!--以下为基本内容-->
         <div :class="{'display':display}" class="header">
             <div class="logo">bobo的导航</div>
             <div class="search">
@@ -94,6 +30,7 @@ var onloadnav=function(){
         </div>
         <div :class="{'display':display}" class="title">主要站点</div>
         <div :class="{'display':display}" class="first">
+            <!-- foreach firstitem -->
             <a  v-for="item in first" 
                 :href="item[2]"  
                 class="firstitem" 
@@ -107,6 +44,7 @@ var onloadnav=function(){
             </a>
         </div>
         <div :class="{'display':display}" class="second">
+            <!-- foreach seconditem -->
             <a  v-for="item in second"
                 :href="item[2]"
                 class="seconditem"
@@ -116,42 +54,22 @@ var onloadnav=function(){
             </a>
         </div>
         <div :class="{'display':display}" class="third">
-            <div class="thirditem"
-                 v-for="item in third"
-            >
+            <!-- foreach thirditem -->
+            <div v-for="item in third" class="thirditem">
                 <div class="thirdtitle">{{item.name}}</div>
                 <hr>
                 <div class="thirdval">
+                    <!-- foreach thirditem->thirdlink -->
                     <a  class="thirdlink"
                         v-for="i in item.val"
                         :href="i[1]"
                         :style="{'color':i[2]!=null?i[2]:''}"
-                    >{{i[0]}}</a>
+                    >
+                        {{i[0]}}
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
-<script>
-var nav=new Vue({
-    'el':'.main',
-    'data':{
-        display:false,
-        first:[],
-        second:[],
-        third:[]
-    }
-});
-
-var ajax_query=new XMLHttpRequest();
-ajax_query.open("GET","nav.json");
-ajax_query.onreadystatechange=function(){
-    if (ajax_query.readyState==4 && ajax_query.status==200){
-        nav_data=JSON.parse(ajax_query.responseText);
-        onloadnav();
-    }
-};
-ajax_query.send();
-</script>
 </body>
 </html>

@@ -227,16 +227,16 @@ html{
 /*墓碑元素*/
 .loading .header .logo,
 .loading .header .search,
-.loading .title,
-.loading .second .seconditem
+.loading .title
 {
-    background:#eee;
+    background:#e1e1e1;
 }
 .loading .title{
     width:200px;
 }
 .loading .header .search{
     width:calc(574px);
+    border:none;
 }
 .loading .first .firstitem:hover{
     background:#fff;
@@ -244,6 +244,16 @@ html{
 .loading .second .seconditem{
     width:120px;
     height:20px;
+    background:#eee;
+}
+.loading .third .thirdtitle{
+    height:1em;
+    background:#eee;
+    width:200px;
+}
+.loading .third .thirdlink{
+    height:1em;
+    background:#eee;
 }
 
 /*墓碑元素多尺寸适配*/
