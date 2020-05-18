@@ -1,6 +1,6 @@
 # bobo-navigation
 
-传送门至[中文文档](https://github.com/bobodesu/bobo-navigation/blob/master/readme.md)  
+传送门至[中文文档-](https://github.com/bobodesu/bobo-navigation/blob/master/readme-zh.md)  
 
 This is a navigation website template.
 Very simple and easy to modify.
@@ -20,7 +20,7 @@ Website Demo: [nav.liubo.pro](http://nav.liubo.pro)
 ```   
 Text color can be ```null```  
 For example:   
-   ![](image/readme-1.png)  
+![](image/readme-1.png)  
 3. ```second``` is second navigation configurations. The ```second``` array length is recommended to be a multiple of 6. The format is like this:  
 ```json  
    "second":[
@@ -30,7 +30,7 @@ For example:
    ]
 ```  
 For example:   
-   ![](image/readme-2.png)  
+![](image/readme-2.png)  
 4. ```third``` is third navigation configurations. The ```third``` array length is recommended to be a multiple of 3. The format is like this:  
 ```json
    "third":[
@@ -55,7 +55,7 @@ For example:
 ```
 The number of links in each category is recommended to be a multiple of 9.  
 For example:    
-       ![](image/readme-3.png)  
+![](image/readme-3.png)  
 
 
 Thanks for your watch    
