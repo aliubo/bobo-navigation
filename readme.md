@@ -21,7 +21,7 @@ Website Demo: [nav.liubo.pro](http://nav.liubo.pro)
    ```   
    Text color can be ```null```  
    For example:   
-   ![](image/readme-1.png)  
+   ![](https://github.com/bobodesu/bobo-navigation/blob/master/image/readme-1.png)  
 3. ```second``` is second navigation configurations. The ```second``` array length is recommended to be a multiple of 6. The format is like this:  
    ```json  
       "second":[
@@ -31,7 +31,7 @@ Website Demo: [nav.liubo.pro](http://nav.liubo.pro)
       ]
    ```  
    For example:   
-   ![](image/readme-2.png)  
+   ![](https://github.com/bobodesu/bobo-navigation/blob/master/image/readme-2.png)  
 4. ```third``` is third navigation configurations. The ```third``` array length is recommended to be a multiple of 3. The format is like this:  
    ```json
       "third":[
@@ -56,7 +56,7 @@ Website Demo: [nav.liubo.pro](http://nav.liubo.pro)
    ```
    The number of links in each category is recommended to be a multiple of 9.  
    For example:    
-   ![](image/readme-3.png)  
+   ![](https://github.com/bobodesu/bobo-navigation/blob/master/image/readme-3.png)  
 
 
 Thanks for your watch    
