@@ -2,7 +2,7 @@
 hello world!  
 这个是一个导航网站的模板  
 极简主义的主页，既简单又美观，快来试试吧  
-网站预览：[www.aliubo.com/nav](http://www.aliubo.com/nav)  
+网站预览：[www.aliubo.com/nav](https://hk.aliubo.com/nav/index.html)  
 
 # 操作方法
 1. 下载仓库并解压，若自定义内容的话需要修改```nav.json```文件，打开  
