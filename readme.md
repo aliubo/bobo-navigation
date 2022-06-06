@@ -7,7 +7,7 @@ This is a navigation website template.
 Very simple and easy to modify.  
 May this project allow you to quickly create pages.  
 
-Website Demo: [www.aliubo.com/nav](https://www.aliubo.com/nav)  
+Website Demo: [www.aliubo.com/nav](https://hk.aliubo.com/nav/index.html)  
 
 # Instructions
 1. Download the repository and unzip, then we open the configuration file ```nav.json```.
